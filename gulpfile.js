@@ -57,10 +57,10 @@ function css(done) {
 
 function javascript(done) {
   src("src/js/**/*.js")
-  .pipe(sourcemaps.init())
-  .pipe(terser())
-  .pipe(sourcemaps.write("."))
-  .pipe(dest("build/js"));
+    .pipe(sourcemaps.init())
+    .pipe(terser())
+    .pipe(sourcemaps.write("."))
+    .pipe(dest("build/js"));
   done();
 }
 
@@ -75,4 +75,11 @@ exports.javascript = javascript;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
 exports.versionAvif = versionAvif;
-exports.default = parallel(versionAvif, imagenes, versionWebp, javascript, dev);
+exports.default = parallel(
+  versionAvif,
+  imagenes,
+  versionWebp,
+  javascript,
+  dev,
+  css
+);
