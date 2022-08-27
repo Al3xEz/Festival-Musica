@@ -1,0 +1,81 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.lineup {
+  background-color: v.$rosa;
+  padding-top: 5rem;
+  h3,
+  p {
+    text-align: center;
+    margin-bottom: 5rem;
+    color: v.$blanco;
+  }
+}
+
+.padding-bot{
+  padding-bottom: 5rem;
+}
+
+.dia {
+  text-transform: uppercase;
+}
+
+.horarios-conciertos {
+  @include m.grid(1, 5rem);
+  @include m.tablet {
+    @include m.grid(2, 5rem);
+  }
+}
+
+.escenario {
+  padding: 2rem 0;
+  -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+  .nombre-escenario {
+    color: v.$negro;
+    &:after {
+      content: "";
+      display: block;
+      width: 20rem;
+      height: 10rem;
+      background-size: 15rem;
+      background-repeat: no-repeat;
+      background-position: center center;
+      margin: 2rem auto 0 auto;
+    }
+  }
+}
+
+.edm .nombre-escenario:after {
+  background-image: url(/build/img/icono_edm.png);
+}
+
+.rock .nombre-escenario:after {
+  background-image: url(/build/img/icono_rock.png);
+}
+
+.bg-amarillo {
+  background-color: v.$amarillo;
+  li:nth-child(odd) {
+    background-color: darken(v.$amarillo, 15%);
+  }
+}
+
+.bg-verdeagua {
+  background-color: v.$verdeAgua;
+  li:nth-child(odd) {
+    background-color: darken(v.$verdeAgua, 10%);
+  }
+}
+
+.calendario {
+  @include m.reset-list;
+  li {
+    padding: 2.5rem;
+    font-weight: 700;
+    span {
+      font-weight: 400;
+    }
+  }
+}
